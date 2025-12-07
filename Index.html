@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SPASO Cyberpunk UI</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+        margin: 0;
+        background: #050505;
+        color: #d4ffd4;
+        font-family: 'Orbitron', sans-serif;
+        overflow-x: hidden;
+    }
+
+    .glow {
+        text-shadow: 0 0 5px #00ff00, 0 0 20px #00ff00;
+    }
+
+    .hero {
+        padding: 50px 20px;
+        text-align: center;
+        background: linear-gradient(180deg, #16ff00, #050505);
+        box-shadow: 0 0 30px #00ff00;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #001300;
+        text-shadow: 0 0 10px #00ff00;
+    }
+
+    /* Typing effect */
+    #typedText {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 16px;
+        white-space: nowrap;
+        border-right: 2px solid #00ff00;
+        width: fit-content;
+        margin: 15px auto 0;
+        overflow: hidden;
+        color: #002500;
+        padding-right: 5px;
+    }
+
+    .btn {
+        margin-top: 25px;
+        padding: 12px 28px;
+        background: #16ff00;
+        color: #000;
+        font-weight: 700;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        box-shadow: 0 0 15px #16ff00;
+    }
+
+    .btn:active {
+        transform: scale(0.95);
+    }
+
+    .section {
+        padding: 25px;
+        border-bottom: 1px solid #0f0f0f;
+    }
+
+    .section h2 {
+        font-size: 22px;
+        color: #16ff00;
+        text-shadow: 0 0 10px #16ff00;
+    }
+
+    .card {
+        background: #0a0a0a;
+        border: 1px solid #16ff00;
+        padding: 18px;
+        border-radius: 6px;
+        margin-top: 15px;
+        box-shadow: 0 0 20px #00ff00;
+    }
+
+    .footer {
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #16ff00;
+        border-top: 1px solid #16ff00;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- LOAD SOUND -->
+<audio id="loadSound">
+    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAAAAASW5mbyByZW1vdmVkIGZvciBzaXplLiBQbGVhc2UgcmVwbGFjZSB5b3VyIG93biBzb3VuZC4AAA==" type="audio/mp3">
+</audio>
+
+<!-- CLICK SOUND -->
+<audio id="clickSound">
+    <source src="data:audio/mp3;base64,//uQZAAAAAAGGGMEEEAACxAAAAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgAAAAAAAAAAAAAAAAAAAA" type="audio/mp3">
+</audio>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <h1 class="glow">SPASO GAME STUDIO</h1>
+    <div id="typedText"></div>
+
+    <button class="btn" onclick="playClick()">Play Mini Games</button>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section">
+    <h2>Neon Cyberpunk Vision</h2>
+    <div class="card">
+        SPASO builds futuristic, neon-lit, hacker-style mini games for the next generation.
+    </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+    <h2>Hacker-Style Features</h2>
+    <div class="card">Neon HUD Interfaces</div>
+    <div class="card">Fast JavaScript Mini Games</div>
+    <div class="card">Cyber Grid Animations</div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+    <h2>Mini Games</h2>
+    <div class="card">Flappy Drone</div>
+    <div class="card">Grid Runner</div>
+    <div class="card">Terminal Escape</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2025 SPASO Game Studio | Cyberpunk Generation
+</div>
+
+<!-- SCRIPT -->
+<script>
+    /* Hacker Typing Effect */
+    const text = "Initializing SPASO System... Loading Cyberpunk UI... Boot Complete.";
+    let index = 0;
+
+    function typeEffect() {
+        const typingElement = document.getElementById("typedText");
+        if (index < text.length) {
+            typingElement.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 40);
+        }
+    }
+
+    /* Sound effects */
+    function playLoadSound() {
+        const sound = document.getElementById("loadSound");
+        sound.volume = 0.5;
+        sound.play();
+    }
+
+    function playClick() {
+        const click = document.getElementById("clickSound");
+        click.volume = 0.5;
+        click.play();
+    }
+
+    /* On Page Load */
+    window.onload = function() {
+        playLoadSound();
+        typeEffect();
+    }
+</script>
+
+</body>
+</html>
